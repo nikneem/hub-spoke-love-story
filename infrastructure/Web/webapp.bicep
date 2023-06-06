@@ -15,7 +15,7 @@ resource appServicePlan 'Microsoft.Web/serverfarms@2022-09-01' = {
 
 var config = [
   {
-    name: 'AzureStorageAccount'
+    name: 'AzureStorageAccountName'
     value: storageAccountName
   }
 ]
