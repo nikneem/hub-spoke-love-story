@@ -12,3 +12,12 @@ module storageAccountDataReaderRoleAssignment 'roleAssignment.bicep' = {
     roleDefinitionId: storageAccountDataContributorRole.id
   }
 }
+module storageAccountDataReaderRoleAssignmentForEduard 'roleAssignment.bicep' = {
+  name: 'storageAccountDataReaderRoleAssignmentForEduardModule'
+  scope: resourceGroup()
+  params: {
+    principalId: 'ce00c98d-c389-47b0-890e-7f156f136ebd'
+    roleDefinitionId: storageAccountDataContributorRole.id
+    principalType: 'User'
+  }
+}

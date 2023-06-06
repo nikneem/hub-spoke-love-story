@@ -21,7 +21,7 @@
     },
     "resourceName": {
       "type": "string",
-      "defaultValue": "hubspoke-love-story-spoke-app",
+      "defaultValue": "hsls-spoke-vnet-app",
       "metadata": {
         "description": "Name of the main resource to be created by this template."
       }

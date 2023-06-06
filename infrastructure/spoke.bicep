@@ -26,7 +26,7 @@ module storageAccount 'Storage/storageAccounts.bicep' = {
   scope: targetResourceGroup
   name: 'storageAccountModule'
   params: {
-    defaultResourceName: systemName
+    defaultResourceName: 'hsls-spoke-vnet'
     location: location
   }
 }
@@ -35,7 +35,7 @@ module webApp 'Web/webapp.bicep' = {
   scope: targetResourceGroup
   name: 'webAppModule'
   params: {
-    defaultResourceName: systemName
+    defaultResourceName: 'hsls-spoke-vnet'
     location: location
     storageAccountName: storageAccount.outputs.storageAccountName
   }

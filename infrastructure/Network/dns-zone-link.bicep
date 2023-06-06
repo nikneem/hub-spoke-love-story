@@ -10,7 +10,7 @@ resource azureKeyVaultPrivateDnsZone 'Microsoft.Network/privateDnsZones@2020-06-
   name: dnsZoneName
 }
 resource azureKeyVaultPrivateDnsZoneLink 'Microsoft.Network/privateDnsZones/virtualNetworkLinks@2020-06-01' = {
-  name: 'link'
+  name: 'spoke-vnet-link'
   parent: azureKeyVaultPrivateDnsZone
   location: 'global'
   properties: {

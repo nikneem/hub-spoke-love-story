@@ -4,7 +4,6 @@ param vnetResourceGroup string
 param vnetName string
 param subnetName string
 
-
 resource VNet 'Microsoft.Network/virtualNetworks@2021-05-01' existing = {
   name: vnetName
   scope: resourceGroup(vnetResourceGroup)
@@ -72,7 +71,7 @@ resource vpnGateway 'Microsoft.Network/virtualNetworkGateways@2022-07-01' = {
       ]
       vpnClientAddressPool: {
         addressPrefixes: [
-          '10.1.0.0/20'
+          '10.99.0.0/20'
         ]
       }
       vpnClientProtocols: [
