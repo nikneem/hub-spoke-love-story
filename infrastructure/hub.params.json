@@ -3,7 +3,14 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "privateDnsZones": {
-      "value": ["privatelink.azconfig.io", "privatelink.vaultcore.azure.net"]
+      "value": [
+        "privatelink.azconfig.io",
+        "privatelink.vaultcore.azure.net",
+        "privatelink.blob.core.windows.net",
+        "privatelink.queue.core.windows.net",
+        "privatelink.table.core.windows.net",
+        "privatelink.file.core.windows.net"
+      ]
     }
   }
 }

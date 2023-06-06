@@ -2,7 +2,7 @@ param location string = resourceGroup().location
 
 param privateDnsZones array
 
-var vpnGatewaySubnetName = 'VpnGateway'
+var vpnGatewaySubnetName = 'GatewaySubnet'
 
 var primaryInboundDnsResolverEndpointIpAddress = '10.0.1.4' // First available IP Address in DnsPrimaryInboundSubnet
 var secondaryInboundDnsResolverEndpointIpAddress = '10.0.2.4' // First available IP Address in DnsSecondaryInboundSubnet
