@@ -29,8 +29,6 @@ module dnsResolver 'Network/dns-resolver.bicep' = {
     vnetName: vnetModule.outputs.vnetName
     primarySubnetName: vnetModule.outputs.primaryInboundDnsResolverSubnetName
     secondarySubnetName: vnetModule.outputs.secondaryInboundDnsResolverSubnetName
-    primaryStaticIpAddress: vnetModule.outputs.primaryInboundDnsResolverEndpointIpAddress
-    secondaryStaticIpAddress: vnetModule.outputs.secondaryInboundDnsResolverEndpointIpAddress
   }
 }
 

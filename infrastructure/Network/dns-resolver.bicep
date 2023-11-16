@@ -2,8 +2,6 @@ param vnetResourceGroup string
 param vnetName string
 param primarySubnetName string
 param secondarySubnetName string
-param primaryStaticIpAddress string
-param secondaryStaticIpAddress string
 param defaultResourceName string
 param location string
 
@@ -17,8 +15,6 @@ resource VNet 'Microsoft.Network/virtualNetworks@2021-05-01' existing = {
     name: secondarySubnetName
   }
 }
-
-
 
 resource dnsResolver 'Microsoft.Network/dnsResolvers@2022-07-01' = {
   name: '${defaultResourceName}-res'

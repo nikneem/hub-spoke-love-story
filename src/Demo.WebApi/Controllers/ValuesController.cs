@@ -1,4 +1,3 @@
-using System.Runtime.CompilerServices;
 using Azure.Data.Tables;
 using Azure.Identity;
 using Demo.WebApi.DataTransferObjects;
@@ -20,9 +19,9 @@ public class ValuesController : ControllerBase
         var tableStorageUri = new Uri($"https://{storageAccountName}.table.core.windows.net");
         var credentials = new ChainedTokenCredential(
             new ManagedIdentityCredential(),
+            new AzureCliCredential(),
             new VisualStudioCredential(),
-            new VisualStudioCodeCredential(),
-            new AzureCliCredential());
+            new VisualStudioCodeCredential());
         var tableClient = new TableClient(tableStorageUri, "apivalues", credentials);
 
         var fruitList = new List<FruitDto>();

@@ -26,7 +26,7 @@ module storageAccount 'Storage/storageAccounts.bicep' = {
   scope: targetResourceGroup
   name: 'storageAccountModule'
   params: {
-    defaultResourceName: 'hsls-spoke-vnet'
+    defaultResourceName: 'hsls-spoke-vnets'
     location: location
   }
 }
