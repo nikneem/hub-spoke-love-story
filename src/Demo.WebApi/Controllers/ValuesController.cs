@@ -8,42 +8,30 @@ namespace Demo.WebApi.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
-public class ValuesController : ControllerBase
+public class ValuesController(IConfiguration configuration) : ControllerBase
 {
-    private readonly IConfiguration _configuration;
-
     [HttpGet]
     public async Task<IActionResult> Get()
     {
-        var storageAccountName = _configuration["AzureStorageAccountName"];
+        var storageAccountName = configuration["AzureStorageAccountName"];
         var tableStorageUri = new Uri($"https://{storageAccountName}.table.core.windows.net");
-        var credentials = new ChainedTokenCredential(
-            new ManagedIdentityCredential(),
-            new AzureCliCredential(),
-            new VisualStudioCredential(),
-            new VisualStudioCodeCredential());
+        var credentials = new DefaultAzureCredential();
         var tableClient = new TableClient(tableStorageUri, "apivalues", credentials);
 
-        var fruitList = new List<FruitDto>();
+        var fruitList = new List<ConferenceDetailsResponse>();
 
-        await foreach (var page in tableClient.QueryAsync<FruitTableEntity>().AsPages())
+        await foreach (var page in tableClient.QueryAsync<ConferenceTableEntity>().AsPages())
         {
             fruitList.AddRange(
-                page.Values.Select(e => new FruitDto
+                page.Values.Select(e => new ConferenceDetailsResponse
                 {
                     Id = e.RowKey,
                     Name = e.Name,
-                    Color = e.Color
+                    Value = e.Value
                 }));
         }
 
         return Ok(fruitList);
     }
-
-    public ValuesController(IConfiguration configuration)
-    {
-        _configuration = configuration;
-    }
-
 }
 
